@@ -7,6 +7,7 @@ import HeroSlideshow from "./components/HeroSlideshow";
 import TrustNumbers from "./components/TrustNumbers";
 import MobileMenu from "./components/MobileMenu";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const PHONE = "0120-836-707";
 const PHONE_DIRECT = "090-7265-5699";
 
@@ -182,13 +183,13 @@ function Services() {
     {
       title: "ご自宅の清掃",
       desc: "キッチン・浴室・トイレなどの水回りから、リビング・寝室の全体清掃まで。汚れの種類に合わせた最適な方法で、住まいの「きれい」を取り戻します。",
-      image: "/images/hero/cleaning_staff_kitchen.webp",
+      image: `${BASE}/images/hero/cleaning_staff_kitchen.webp`,
       tags: ["全体清掃", "水回り", "部分清掃"],
     },
     {
       title: "別荘・リゾート",
       desc: "山中湖エリアの別荘清掃で豊富な実績。売買時のクリーニング、シーズン前後の定期清掃、管理会社様との連携にも対応しています。",
-      image: "/images/work/work_scene_03.webp",
+      image: `${BASE}/images/work/work_scene_03.webp`,
       tags: ["定期清掃", "売買時対応", "管理会社連携"],
     },
   ];
@@ -344,10 +345,10 @@ function WhyUs() {
 
 function BeforeAfter() {
   const pairs = [
-    { before: "/images/before-after/bath_entrance_before.webp", after: "/images/before-after/bath_entrance_after.webp", label: "浴室" },
-    { before: "/images/before-after/bath_tub_before.webp", after: "/images/before-after/bath_tub_after.webp", label: "浴槽" },
-    { before: "/images/before-after/toilet_before.webp", after: "/images/before-after/toilet_after.webp", label: "トイレ" },
-    { before: "/images/before-after/washbasin_before.webp", after: "/images/before-after/washbasin_after.webp", label: "洗面台" },
+    { before: `${BASE}/images/before-after/bath_entrance_before.webp`, after: `${BASE}/images/before-after/bath_entrance_after.webp`, label: "浴室" },
+    { before: `${BASE}/images/before-after/bath_tub_before.webp`, after: `${BASE}/images/before-after/bath_tub_after.webp`, label: "浴槽" },
+    { before: `${BASE}/images/before-after/toilet_before.webp`, after: `${BASE}/images/before-after/toilet_after.webp`, label: "トイレ" },
+    { before: `${BASE}/images/before-after/washbasin_before.webp`, after: `${BASE}/images/before-after/washbasin_after.webp`, label: "洗面台" },
   ];
 
   return (

@@ -3,17 +3,19 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const slides = [
   {
-    src: "/images/hero/cleaning_staff_kitchen.webp",
+    src: `${BASE}/images/hero/cleaning_staff_kitchen.webp`,
     alt: "清潔なキッチンで作業するスタッフ",
   },
   {
-    src: "/images/work/work_scene_02.webp",
+    src: `${BASE}/images/work/work_scene_02.webp`,
     alt: "新築物件の引渡し前清掃",
   },
   {
-    src: "/images/work/work_scene_03.webp",
+    src: `${BASE}/images/work/work_scene_03.webp`,
     alt: "山中湖の別荘 清掃後の美しい室内",
   },
 ];
