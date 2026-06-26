@@ -22,6 +22,17 @@ function Header() {
           <a href="#services" className="hover:text-neutral-800 transition-colors">サービス</a>
           <a href="#works" className="hover:text-neutral-800 transition-colors">施工事例</a>
           <a href="#company" className="hover:text-neutral-800 transition-colors">会社概要</a>
+          <a
+            href="https://www.instagram.com/wingfieldjapan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-400 hover:text-accent transition-colors"
+            aria-label="Instagram"
+          >
+            <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
           <a href={`tel:${PHONE.replace(/-/g, "")}`} className="text-neutral-800 font-medium">
             {PHONE}
           </a>
@@ -649,32 +660,85 @@ function CTASection() {
   );
 }
 
+function FAQ() {
+  const faqs = [
+    {
+      q: "見積もりは無料ですか？",
+      a: "はい、お見積もりは完全無料です。現地を確認した上で、作業内容と費用を事前にご説明いたします。",
+    },
+    {
+      q: "対応エリアはどこですか？",
+      a: "山中湖村・富士吉田市・富士河口湖町・忍野村・鳴沢村を中心に、富士五湖エリア全域に対応しています。",
+    },
+    {
+      q: "不在時でも作業できますか？",
+      a: "はい、鍵をお預かりしての作業も承っております。別荘オーナー様など、遠方にお住まいの方も安心してご依頼いただけます。",
+    },
+    {
+      q: "作業中に物が破損した場合は？",
+      a: "損害賠償保険に加入しておりますので、万が一の際も補償いたします。安心してお任せください。",
+    },
+    {
+      q: "キャンセル料はかかりますか？",
+      a: "作業日前日までのキャンセルは無料です。当日キャンセルの場合はご相談ください。",
+    },
+    {
+      q: "料金に出張費は含まれますか？",
+      a: "対応エリア内であれば出張費は無料です。料金表の金額以外に追加費用が発生する場合は、事前にご説明いたします。",
+    },
+  ];
+
+  return (
+    <section className="py-12 md:py-20 bg-surface">
+      <div className="max-w-3xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-accent text-xs md:text-sm tracking-[0.3em] mb-2 md:mb-3">FAQ</p>
+          <h2 className="text-2xl md:text-3xl font-medium text-neutral-900">よくあるご質問</h2>
+        </div>
+        <div className="space-y-0">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="group border-b border-neutral-200">
+              <summary className="flex items-center justify-between py-5 md:py-6 cursor-pointer list-none text-sm md:text-base text-neutral-800 font-medium">
+                <span className="pr-4">{faq.q}</span>
+                <svg
+                  className="w-4 h-4 text-neutral-400 shrink-0 transition-transform duration-200 group-open:rotate-45"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </summary>
+              <p className="pb-5 md:pb-6 text-sm text-neutral-500 leading-[1.9] pr-8">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="bg-surface border-t border-neutral-200 pb-20 md:pb-0">
+    <footer className="bg-neutral-800 text-neutral-400 pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="flex flex-col md:flex-row justify-between gap-6 text-sm text-neutral-500">
-          <p className="tracking-[0.15em] text-neutral-800">WING FIELD JAPAN</p>
-          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-            <span>山梨県南都留郡山中湖村 平野3376</span>
-            <span>{PHONE}</span>
-            <span>8:00〜17:00</span>
+        <div className="flex flex-col md:flex-row justify-between gap-6 text-sm">
+          <div className="flex items-center gap-4">
+            <p className="tracking-[0.15em] text-white text-sm">WING FIELD JAPAN</p>
             <a
               href="https://www.instagram.com/wingfieldjapan/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-accent transition-colors"
+              className="text-neutral-500 hover:text-white transition-colors"
               aria-label="Instagram"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
               </svg>
             </a>
           </div>
-        </div>
-        <div className="border-t border-neutral-200 mt-6 pt-5 text-[10px] md:text-xs text-neutral-400 flex flex-col md:flex-row justify-between gap-2">
-          <p>対応エリア: 山中湖村・富士吉田市・富士河口湖町・忍野村・鳴沢村</p>
-          <p>&copy; {new Date().getFullYear()} Wing Field Japan</p>
+          <p className="text-xs text-neutral-500">&copy; {new Date().getFullYear()} Wing Field Japan</p>
         </div>
       </div>
     </footer>
@@ -720,6 +784,7 @@ export default function Home() {
         <Flow />
         <IntroSection />
         <CompanyInfo />
+        <FAQ />
         <CTASection />
       </main>
       <Footer />
